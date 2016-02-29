@@ -1,0 +1,15 @@
+cmake_minimum_required(VERSION 2.8)
+project(TP2Crypto)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+find_package(OpenSSL REQUIRED)
+if (OPENSSL_FOUND)
+    message( STATUS "OPENSSL found.")
+    INCLUDE_DIRECTORIES(${OPENSSL_INCLUDE_DIR})
+else (OPENSSL_FOUND)
+    message( STATUS "OPENSSL not found")
+endif (OPENSSL_FOUND)
+
+set(SOURCE_FILES main.cpp Contexte.cpp md5.cpp ArcEnCiel.cpp)
+add_executable(TP2 ${SOURCE_FILES})
+target_link_libraries(TP2 ${OPENSSL_LIBRARIES})
