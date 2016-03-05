@@ -8,6 +8,7 @@ using namespace std;
 class Contexte {
 
 public:
+    Contexte();
     Contexte(uint64_t _N, int _mot_taille_min, int _mot_taille_max, uint64_t *_N_taille, int _nb_lettres, char *_lettres)
             : _N(_N), _mot_taille_min(_mot_taille_min), _mot_taille_max(_mot_taille_max), _N_taille(_N_taille),
               _nb_lettres(_nb_lettres), _lettres(_lettres) { }
@@ -18,9 +19,9 @@ public:
     // In: position t, empreinte d ---> Retourne index
     uint64_t h2i( uint64_t t, unsigned char* d );
     // In: index idx ----> Out: Clair c
-    void i2c( uint64_t idx, unsigned char* c );
+    void i2c( uint64_t idx, string* c );
     // In: index idx ----> retourne index (la composée des précédentes)
-    uint64_t i2i( uint64_t idx );
+    uint64_t i2i( uint64_t t, uint64_t idx );
     // Retourne un indice aléatoire valide.
     uint64_t randIndex();
 

@@ -10,13 +10,9 @@ int main() {
                             (char[26]) {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p',
                                       'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'});
     uint64_t idx = 11844934;
-    unsigned char *toCrypt;
+    string *toCrypt = new string[5];
     contexte->i2c(idx, toCrypt);
-
-    //Affichage en entier du mot clair
-    for(int i = 0; i < 5; i++) {
-        printf("%02x",toCrypt[i]);
-    } printf("\n");
+    cout << toCrypt[0] << toCrypt[1] << toCrypt[2] << toCrypt[3] << toCrypt[4] << endl;
 
     string toCryptString = "kcyxz";
     unsigned char *crypted = new unsigned char[MD5_DIGEST_LENGTH];
@@ -28,6 +24,8 @@ int main() {
         printf("%02x",crypted[i]);
     } printf("\n");
 
-    cout << contexte->h2i(1, crypted);
+    cout << contexte->h2i(1, crypted) << endl;
+
+    cout << contexte->i2i(1, idx);
     return 0;
 }
