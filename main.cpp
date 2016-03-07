@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Contexte.h"
+#include "ArcEnCiel.h"
 #include <openssl/md5.h>
 
 using namespace std;
@@ -25,7 +26,9 @@ int main() {
     } printf("\n");
 
     cout << contexte->h2i(1, crypted) << endl;
-
     cout << contexte->i2i(1, idx);
+
+    //ArcEnCiel *arcEnCiel = new ArcEnCiel(0, 100, 100, (const allocator<Chaine> &) new vector<Chaine>);
+    //arcEnCiel->creer(*contexte, 0, 100, 100);
     return 0;
 }

@@ -2,6 +2,7 @@
 #define TP2CRYPTO_ARCENCIEL_H
 
 #include <sys/types.h>
+//#include <bits/stl_vector.h>
 #include "Contexte.h"
 
 struct Chaine {
@@ -11,13 +12,7 @@ struct Chaine {
 
 class ArcEnCiel {
 public:
-    ArcEnCiel(uint _numero, uint _M, uint _T, Chaine *_X) : _numero(_numero), _M(_M), _T(_T), _X(_X) { }
-
-private:
-    uint _numero;   // numero de la table (ici 0, mais voir "Moult tables")
-    uint _M;        // nombre de chaines dans la table
-    uint _T;        // taille de chaque chaine
-    Chaine* _X;     // la table elle-meme
+    //ArcEnCiel(uint _numero, uint _M, uint _T, const allocator<Chaine> &_X) : _numero(_numero), _M(_M), _T(_T), _X(_X) { }
 
     // Creer les M chaînes de taille T, dans le contexte ctxt
     void creer( Contexte ctxt, int num, int M, int T );
@@ -30,6 +25,14 @@ private:
     // Recherche dichotomique dans la table
     // ( p et q sont le premier/dernier trouvé )
     bool recherche( uint64_t idx, uint & p, uint & q );
+
+private:
+    uint _numero;   // numero de la table (ici 0, mais voir "Moult tables")
+    uint _M;        // nombre de chaines dans la table
+    uint _T;        // taille de chaque chaine
+   // vector<Chaine> _X;     // la table elle-meme
 };
+
+
 
 #endif //TP2CRYPTO_ARCENCIEL_H

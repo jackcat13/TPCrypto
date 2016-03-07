@@ -43,5 +43,7 @@ uint64_t Contexte::i2i(uint64_t t, uint64_t idx) {
 }
 
 uint64_t Contexte::randIndex() {
-    return 0;
+    uint64_t min = 0;
+    uint64_t max = 99999999;
+    return min + (rand() % (uint64_t)(max - min + 1));
 }
